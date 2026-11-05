@@ -1,0 +1,6 @@
+<?php
+$rows=all_tickets(); usort($rows,fn($a,$b)=>strcmp($b['created_at'],$a['created_at']));
+?>
+<?php page_heading('PENGAWASAN LAYANAN','Monitoring Pengaduan','Pantau seluruh pengaduan dari kantor cabang dan unit yang berada dalam cakupan pelayanan Tim IT.'); ?>
+<div class="stats-grid stats-four"><?php $c=ticket_counts(); stat_card('Total tiket',$c['total'],'Semua lokasi','▤','blue'); stat_card('Menunggu',$c['menunggu'],'Dalam antrean FIFO','◷','amber'); stat_card('Diproses',$c['diproses'],'Sedang ditangani','⚙','cyan'); stat_card('Selesai',$c['selesai'],'Sudah dituntaskan','✓','green'); ?></div>
+<section class="panel mt-24"><div class="toolbar"><form method="get" class="search-form"><input type="hidden" name="page" value="monitoring"><span>⌕</span><input name="q" value="<?= e($_GET['q']??'') ?>" placeholder="Cari tiket, pelapor, unit..."><button class="btn btn-outline btn-sm">Cari</button></form><span class="result-count">Semua unit · <?= count($rows) ?> tiket</span></div><?php $q=trim($_GET['q']??''); if($q!=='')$rows=array_values(array_filter($rows,fn($t)=>stripos($t['ticket'].' '.$t['reporter'].' '.$t['unit'].' '.$t['category'],$q)!==false)); ticket_table($rows,true,'Tidak ada pengaduan yang sesuai.'); ?></section>

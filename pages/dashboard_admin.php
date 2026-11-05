@@ -1,0 +1,13 @@
+<?php
+$counts = ticket_counts();
+$tickets = all_tickets();
+$users = users_all();
+$byCategory = [];
+foreach ($tickets as $t) $byCategory[$t['category']] = ($byCategory[$t['category']] ?? 0) + 1;
+arsort($byCategory);
+$maxCategory = max(1, ...array_values($byCategory));
+?>
+<?php page_heading('ADMINISTRATOR','Dashboard Admin','Pantau aktivitas pengaduan, kinerja penanganan, dan data layanan IT secara menyeluruh.'); ?>
+<div class="stats-grid stats-four"><?php stat_card('Total pengaduan', $counts['total'], 'Seluruh lokasi pelayanan', '▤', 'blue'); ?><?php stat_card('Menunggu', $counts['menunggu'], 'Belum diterima teknisi', '◷', 'amber'); ?><?php stat_card('Sedang diproses', $counts['diproses'], 'Dalam penanganan', '⚙', 'cyan'); ?><?php stat_card('Selesai', $counts['selesai'], 'Tiket telah dituntaskan', '✓', 'green'); ?></div>
+<div class="section-grid section-grid-main"><section class="panel"><div class="panel-heading"><div><h3>Tren pengaduan</h3><p>Ringkasan simulasi berdasarkan kategori tiket.</p></div><span class="period-chip">DATA DEMO</span></div><div class="bar-chart"><?php foreach (array_slice($byCategory,0,5,true) as $label=>$value): ?><div class="bar-row"><div class="bar-label"><span><?= e($label) ?></span><strong><?= $value ?></strong></div><div class="bar-track"><div class="bar-fill" style="width:<?= round($value/$maxCategory*100) ?>%"></div></div></div><?php endforeach; ?><?php if (!$byCategory): ?><div class="empty-state">Belum ada data kategori.</div><?php endif; ?></div></section><aside class="panel"><div class="panel-heading"><div><h3>Pengguna terdaftar</h3><p>Ringkasan akun demo.</p></div><a class="text-link" href="<?= e(url('pengguna')) ?>">Kelola →</a></div><div class="user-summary"><div class="user-summary-icon">♙</div><div><strong><?= count($users) ?></strong><small>Total akun</small></div></div><div class="role-line"><span>Pegawai</span><strong><?= count(array_filter($users,fn($u)=>$u['role']==='pegawai')) ?></strong></div><div class="role-line"><span>Tim IT</span><strong><?= count(array_filter($users,fn($u)=>$u['role']==='teknisi')) ?></strong></div><div class="role-line"><span>Administrator</span><strong><?= count(array_filter($users,fn($u)=>$u['role']==='admin')) ?></strong></div></aside></div>
+<section class="panel mt-24"><div class="panel-heading"><div><h3>Pengaduan terbaru</h3><p>Aktivitas tiket terbaru dari seluruh lokasi.</p></div><a class="text-link" href="<?= e(url('monitoring')) ?>">Monitoring lengkap →</a></div><?php $sorted=$tickets; usort($sorted,fn($a,$b)=>strcmp($b['created_at'],$a['created_at'])); ticket_table(array_slice($sorted,0,5), true); ?></section>

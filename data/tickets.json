@@ -1,0 +1,101 @@
+[
+    {
+        "id": 1,
+        "ticket": "IT-20261104-0001",
+        "reporter_id": 1,
+        "reporter": "Rani Putri",
+        "unit": "KC Iskandar Muda",
+        "location": "Lantai 2 - Bagian Operasional",
+        "category": "Komputer / Laptop",
+        "device": "Laptop Lenovo ThinkPad",
+        "service_type": "Gangguan",
+        "description": "Laptop sering mengalami restart sendiri ketika digunakan untuk pekerjaan administrasi.",
+        "created_at": "2026-11-04 08:15:00",
+        "queue_entered_at": "2026-11-04 08:15:00",
+        "status": "diproses",
+        "assignee_id": 2,
+        "assignee": "Hazrul IT",
+        "notes": [],
+        "history": [
+            {
+                "time": "2026-11-04 08:15:00",
+                "status": "Menunggu",
+                "note": "Pengaduan dibuat oleh pelapor."
+            },
+            {
+                "time": "2026-11-04 09:52:42",
+                "status": "Diproses",
+                "note": "Tiket diterima oleh Fajar Pratama."
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "ticket": "IT-20261104-0004",
+        "reporter_id": 4,
+        "reporter": "Dimas Saputra",
+        "unit": "Unit Medan Baru",
+        "location": "Ruang Layanan",
+        "category": "Jaringan & Internet",
+        "device": "PC layanan",
+        "service_type": "Gangguan",
+        "description": "Koneksi jaringan pada satu komputer terputus secara berkala.",
+        "created_at": "2026-11-04 09:30:00",
+        "queue_entered_at": "2026-11-04 09:30:00",
+        "status": "tindak_lanjut",
+        "assignee_id": 2,
+        "assignee": "Hazrul IT",
+        "notes": [
+            "Menunggu pemeriksaan lanjutan pada titik jaringan."
+        ],
+        "history": [
+            {
+                "time": "2026-11-04 09:30:00",
+                "status": "Menunggu",
+                "note": "Pengaduan dibuat oleh pelapor."
+            },
+            {
+                "time": "2026-11-04 09:50:00",
+                "status": "Menunggu Tindak Lanjut",
+                "note": "Pemeriksaan lanjutan diperlukan."
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "ticket": "IT-20261104-0005",
+        "reporter_id": 4,
+        "reporter": "Dimas Saputra",
+        "unit": "Unit Medan Baru",
+        "location": "Ruang Administrasi",
+        "category": "Software & Sistem Operasi",
+        "device": "PC Desktop",
+        "service_type": "Permintaan Layanan",
+        "description": "Permintaan pemeriksaan aplikasi kerja yang tidak dapat dibuka.",
+        "created_at": "2026-11-04 10:05:00",
+        "queue_entered_at": "2026-11-04 10:05:00",
+        "status": "selesai",
+        "assignee_id": 2,
+        "assignee": "Hazrul IT",
+        "notes": [
+            "Pemeriksaan konfigurasi aplikasi selesai dilakukan."
+        ],
+        "history": [
+            {
+                "time": "2026-11-04 10:05:00",
+                "status": "Menunggu",
+                "note": "Pengaduan dibuat oleh pelapor."
+            },
+            {
+                "time": "2026-11-04 10:15:00",
+                "status": "Diproses",
+                "note": "Tiket diterima teknisi."
+            },
+            {
+                "time": "2026-11-04 10:45:00",
+                "status": "Selesai",
+                "note": "Pemeriksaan selesai."
+            }
+        ]
+    }
+]

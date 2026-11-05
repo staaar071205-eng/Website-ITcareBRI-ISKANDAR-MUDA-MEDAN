@@ -1,0 +1,8 @@
+<?php
+$masterTabs = ['kategori'=>'Kategori Gangguan','lokasi'=>'Lokasi / Unit','perangkat'=>'Jenis Perangkat'];
+$activeTab = $_GET['tab'] ?? 'kategori';
+if (!isset($masterTabs[$activeTab])) $activeTab='kategori';
+$masterRows = ['kategori'=>$_SESSION['demo_categories'],'lokasi'=>$_SESSION['demo_locations'],'perangkat'=>$_SESSION['demo_devices']];
+?>
+<?php page_heading('MANAJEMEN DATA','Master Data','Kelola referensi kategori, lokasi pelayanan, dan jenis perangkat yang digunakan pada formulir pengaduan.'); ?>
+<section class="panel"><div class="panel-heading"><div><h3>Data referensi sistem</h3><p>Master data digunakan agar pengisian pengaduan lebih konsisten.</p></div><button type="button" class="btn btn-primary" data-demo-action="Penambahan master data akan dihubungkan ke database pada tahap backend.">＋ Tambah Data</button></div><div class="tabs"><?php foreach($masterTabs as $key=>$label): ?><a class="tab-link <?= $activeTab===$key?'active':'' ?>" href="<?= e(url('master-data',['tab'=>$key])) ?>"><?= e($label) ?></a><?php endforeach; ?></div><div class="master-list"><div class="master-list-head"><strong><?= e($masterTabs[$activeTab]) ?></strong><span><?= count($masterRows[$activeTab]) ?> data</span></div><?php foreach($masterRows[$activeTab] as $i=>$row): ?><div class="master-row"><span class="master-index"><?= str_pad((string)($i+1),2,'0',STR_PAD_LEFT) ?></span><strong><?= e($row) ?></strong><span class="status-badge status-success"><i></i>Aktif</span><button type="button" class="table-action as-button" data-demo-action="Pengubahan master data akan diaktifkan setelah integrasi database.">Ubah</button></div><?php endforeach; ?></div></section>
