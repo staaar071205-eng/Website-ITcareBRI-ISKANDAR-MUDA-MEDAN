@@ -202,7 +202,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $allowed = ['diproses','tindak_lanjut','selesai','ditolak','menunggu'];
         if ($ticket && in_array($status, $allowed, true)) {
             if (current_user()['role'] === 'teknisi' && $ticket['assignee_id'] !== current_user()['id']) {
-                $_SESSION['flash'] = ['type' => 'danger', 'message' => 'Pada prototipe ini, teknisi hanya dapat mengubah tiket yang menjadi tanggung jawabnya.'];
+                $_SESSION['flash'] = ['type' => 'danger', 'message' => 'Pada sistem ini, teknisi hanya dapat mengubah tiket yang menjadi tanggung jawabnya.'];
                 redirect(url('penanganan'));
             }
             $note = trim($_POST['note'] ?? 'Pembaruan status tiket.');

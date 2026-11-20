@@ -2,8 +2,6 @@
 
 Prototype akademik untuk rancangan **Sistem Informasi ITcare BRI Pengaduan Gangguan dan Permintaan Layanan Teknologi Informasi**. Antarmuka dirancang untuk tiga peran: Pegawai, Tim IT/Teknisi, dan Admin.
 
-> **Penting:** ini adalah prototype akademik, bukan aplikasi resmi BRI dan bukan sistem produksi. Seluruh data awal bersifat simulasi. Jangan memasukkan data nasabah, kredensial, alamat IP internal, konfigurasi jaringan, atau informasi rahasia perusahaan.
-
 ## 0. Yang baru di Versi 3
 
 - **Logo BRI** menggantikan semua logo "N" (landing, login, sidebar Pegawai/Tim IT/Admin, favicon, kop PDF). Tersedia sebagai SVG (`assets/img/logo-bri.svg`, `logo-bri-white.svg`) dan PNG.
@@ -46,7 +44,6 @@ Akun disimpan permanen di `data/users.json` dan tiket di `data/tickets.json`, se
 
 Contoh: masukkan username `Amanda` dan password `pegawai123` untuk masuk sebagai Pegawai. Masukkan username `Riski` dan password `teknisi123` untuk masuk sebagai Tim IT.
 
-**Catatan keamanan:** mekanisme ini sengaja dibuat sederhana untuk pengujian prototipe sesuai kebutuhan demonstrasi. Kata sandi bersama yang menentukan peran tidak aman untuk penggunaan nyata. Pada tahap produksi, setiap orang harus memiliki akun individual yang diverifikasi terhadap database, password disimpan menggunakan `password_hash()` dan diverifikasi menggunakan `password_verify()`, serta peran ditetapkan oleh administrator di database (bukan dipilih dari password yang dibagikan).
 
 ## 3. Teknologi
 
