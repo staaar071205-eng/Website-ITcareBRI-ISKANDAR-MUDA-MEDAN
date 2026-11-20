@@ -88,6 +88,6 @@ $faq = array_values(array_filter($faq, fn($f) => $f[2] === 'all' || $f[2] === $r
     <?php else: ?>
     <section class="panel tip-panel"><div class="tip-illustration">✧</div><h3>Tips untuk administrator</h3><ul><li>Balas pesan dengan singkat dan jelas.</li><li>Tandai selesai setelah masalah teratasi.</li><li>Jumlah pesan baru tampil pada lencana menu Pusat Bantuan.</li></ul></section>
     <?php endif; ?>
-    <section class="panel mt-24 contact-card"><h3>Lokasi layanan</h3><p>Kantor Cabang BRI Medan Iskandar Muda<br>Jln. Iskandar Muda No. 173 Medan</p><small class="field-help">Prototipe akademik, bukan kanal resmi BRI.</small></section>
+    <section class="panel mt-24 contact-card"><h3>Lokasi layanan</h3><p>Kantor Cabang BRI Medan Iskandar Muda<br>Jln. Iskandar Muda No. 173 Medan</p><small class="field-help">Website BRI Iskandar Muda, resmi BRI.</small></section>
   </aside>
 </div>

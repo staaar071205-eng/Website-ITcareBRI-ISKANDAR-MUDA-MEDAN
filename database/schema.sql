@@ -1,5 +1,5 @@
 CREATE DATABASE IF NOT EXISTS dbhelpdesk
-  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+  CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE dbhelpdesk;
 
 CREATE TABLE roles (
@@ -28,7 +28,7 @@ CREATE TABLE users (
   password_hash VARCHAR(255) NOT NULL,
   is_active TINYINT(1) NOT NULL DEFAULT 1,
   last_login_at DATETIME NULL,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  created_at DATETIME NULL, 
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   CONSTRAINT fk_users_role FOREIGN KEY (role_id) REFERENCES roles(id),
   CONSTRAINT fk_users_location FOREIGN KEY (location_id) REFERENCES locations(id)

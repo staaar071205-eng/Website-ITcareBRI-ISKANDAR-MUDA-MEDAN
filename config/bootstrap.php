@@ -1,5 +1,5 @@
 <?php
-// Prototipe ITcare BRI — akun & tiket disimpan permanen di folder /data (JSON); master data demo di session.
+// ITcare BRI — akun & tiket disimpan permanen di folder /data (JSON); master data demo di session.
 // Tahap berikutnya: migrasi ke MySQL.
 date_default_timezone_set('Asia/Jakarta');
 if (session_status() !== PHP_SESSION_ACTIVE) {

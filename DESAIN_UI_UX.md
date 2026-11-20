@@ -60,7 +60,3 @@ Tujuan: menerima data yang cukup untuk ditindaklanjuti. Bagian form: jenis layan
 5. Aksi penting (terima tiket, ubah status, selesai) harus menghasilkan konfirmasi dan riwayat.
 6. Form memakai validasi, petunjuk, dan pesan error yang spesifik.
 7. Hindari menampilkan data sensitif pada tabel atau notifikasi.
-
-## F. Status prototipe
-
-Antarmuka dan alur demo telah disediakan. Data demo disimpan dalam PHP session. Unggah file, autentikasi produksi, manajemen master data yang persisten, dan integrasi MySQL belum diaktifkan. Itu merupakan pekerjaan tahap backend selanjutnya.
